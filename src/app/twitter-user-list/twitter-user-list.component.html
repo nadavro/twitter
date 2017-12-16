@@ -1,0 +1,31 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+       Welcome to Webintpro!
+    </div>
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Search for Twitter user:</div>
+            <div class='col-md-2'>
+                <input type='text' [(ngModel)]='searchString'/>
+                <button type="button" class="btn btn-primary" (click)='getUsers(searchString)'><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </div>
+            
+        </div>
+        <div class='table-responsive'>
+            <table class='table' *ngIf='twitterUsers && twitterUsers.length'>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Full Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let user of twitterUsers' (click)='showUserTweets(user)'>
+                        <td>{{user.username}}</td>
+                        <td>{{user.fullname}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
