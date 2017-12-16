@@ -10,7 +10,7 @@ import { TwitterService } from "../twitter.service";
 export class TwitterUserListComponent implements OnInit {
   twitterUsers:TwitterUser[];
   getUsers(str: string){
-    this._twitterService.getUsers().subscribe((jsonData) => {
+    this._twitterService.getUsers(str).subscribe((jsonData) => {
         this.twitterUsers = jsonData;
         console.log(jsonData);
       });

@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/users', (req, res) => {
-  var params = {q:'nadav',count:20};
+  var query = req.query.query; 
+  var params = {q:query,count:20};
   var ans = [];
   twitterClient.get('users/search',params,function(error, tweets, response){
     for (var i = 0; i < tweets.length; i= i+1){
@@ -28,7 +29,6 @@ router.get('/users', (req, res) => {
         fullname: fullname,
         id: id
       };
-      console.log(currentUser['id_str']);
       ans.push(current);
     }
     res.json(ans);
