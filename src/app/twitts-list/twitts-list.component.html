@@ -1,0 +1,9 @@
+<div class='panel panel-primary'>
+            <ol *ngIf='twitts && twitts.length'>
+                    <li *ngFor='let twitt of twitts'>
+                        <span>{{twitt.text}}</span>
+                        <span>{{twitt.date}}</span>
+                    </li>
+            </ol>
+</div>
+  

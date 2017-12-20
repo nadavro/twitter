@@ -14,7 +14,10 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
+
+/* GET all users with specific string in screen name */
 router.get('/users', (req, res) => {
+  console.log('getUsers');
   var query = req.query.query; 
   var params = {q:query,count:20};
   var ans = [];
@@ -33,5 +36,33 @@ router.get('/users', (req, res) => {
     }
     res.json(ans);
   })
+});
+
+router.get('/users/search/tweets', (req,res) => {
+  console.log('mike smalling');
+  var id = req.query.id;
+  console.log(id);
+  var params = {user_id:id,count:50};
+  if (req.query.max_id){
+    params.max_id = req.query.max_id;
+  }
+  var ans = [];
+  twitterClient.get('statuses/user_timeline',params,function(error,tweets,response){
+    for (var i = 0; i < tweets.length; i++){
+      var currentTweet  = tweets[i];
+      var text = currentTweet['text'];
+      var date = currentTweet['created_at'];
+      var id = currentTweet['id'];
+      var current = {
+        text:text,
+        date:date,
+        id:id
+      }
+      ans.push(current);
+    }
+    console.log('hahahaha');
+    res.json(ans);
+    
+  });
 });
 module.exports = router;

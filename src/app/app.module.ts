@@ -8,12 +8,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { TwitterUserListComponent } from './twitter-user-list/twitter-user-list.component';
 import { TwitterService } from "./twitter.service";
+import { TwittsListComponent } from './twitts-list/twitts-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TwitterUserListComponent
+    TwitterUserListComponent,
+    TwittsListComponent
   ],
   imports: [
     BrowserModule,
