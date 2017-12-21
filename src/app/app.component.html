@@ -1,17 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
+
 <nav class='navbar navbar-default'>
             <div class='container-fluid'>
+                <div class="top-bar">
+                <img class="brand" src="http://www.webintpro.com/wp-content/uploads/2017/05/wip_dark.png">
                 <ul class='nav navbar-nav'>
-                    <li><a>Home</a></li>
-                    <li><a>About</a></li>
-                    <li><a>Contact</a></li>
+                    
+                    <li><a [routerLink] = "['/Home']">Home</a></li>
+                    <li><a [routerLink] = "['/About']">About</a></li>
+                    <li><a [routerLink] = "['/Contact']">Contact</a></li>
                 </ul>
+                </div>
             </div>
 </nav>
-<div class='panel-heading'>
-    Welcome to Webintpro!
-</div>
-<div class="siblings">
-    <app-twitter-user-list></app-twitter-user-list>
-    <app-twitts-list></app-twitts-list>
-</div>
+<div class="container text-center">
+        <router-outlet></router-outlet>
+    </div>
+    
+
+
+    

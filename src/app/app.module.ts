@@ -9,20 +9,30 @@ import { AppComponent } from './app.component';
 import { TwitterUserListComponent } from './twitter-user-list/twitter-user-list.component';
 import { TwitterService } from "./twitter.service";
 import { TwittsListComponent } from './twitts-list/twitts-list.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { RouterModule, Routes } from '@angular/router';
 
 
+const appRoutes: Routes = [
+   { path: '', redirectTo: '/Home', pathMatch: 'full' },
+   { path: 'Home', component: TwitterUserListComponent },
+   { path: 'About', component: AboutComponent },
+   { path: 'Contact', component: ContactComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
     TwitterUserListComponent,
-    TwittsListComponent
+    TwittsListComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
-  ],
+    HttpClientModule,RouterModule.forRoot(appRoutes)],
   providers: [TwitterService],
   bootstrap: [AppComponent]
 })

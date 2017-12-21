@@ -1,0 +1,19 @@
+.siblings{
+    display: flex;
+}
+
+tbody tr:hover{
+    color: #fff;
+    background-color: #286090
+}
+
+tbody tr { 
+    cursor: pointer;
+}
+th {
+    text-align: center; 
+}
+
+w-30{
+    width:40%;
+}

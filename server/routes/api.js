@@ -17,7 +17,6 @@ router.get('/', (req, res) => {
 
 /* GET all users with specific string in screen name */
 router.get('/users', (req, res) => {
-  console.log('getUsers');
   var query = req.query.query; 
   var params = {q:query,count:20};
   var ans = [];
@@ -26,10 +25,12 @@ router.get('/users', (req, res) => {
       var currentUser = tweets[i];
       var username = currentUser['screen_name'];
       var fullname = currentUser['name'];
+      var imageUrl = currentUser['profile_image_url'];
       var id = currentUser['id_str'];
       var current = {
         username:username,
         fullname: fullname,
+        imageUrl:imageUrl,
         id: id
       };
       ans.push(current);
@@ -39,9 +40,7 @@ router.get('/users', (req, res) => {
 });
 
 router.get('/users/search/tweets', (req,res) => {
-  console.log('mike smalling');
   var id = req.query.id;
-  console.log(id);
   var params = {user_id:id,count:50};
   if (req.query.max_id){
     params.max_id = req.query.max_id;
@@ -52,15 +51,15 @@ router.get('/users/search/tweets', (req,res) => {
       var currentTweet  = tweets[i];
       var text = currentTweet['text'];
       var date = currentTweet['created_at'];
+      var d = new Date(date).toLocaleString("es-ES");
       var id = currentTweet['id'];
       var current = {
         text:text,
-        date:date,
+        date:d,
         id:id
       }
       ans.push(current);
     }
-    console.log('hahahaha');
     res.json(ans);
     
   });
