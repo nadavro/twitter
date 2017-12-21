@@ -11,6 +11,7 @@ export class TwitterService {
   constructor(private http: Http) { 
        
   }
+  a:string;
   currentTwitts: Subject<Twitt[]> = new Subject<Twitt[]>();
   currentUser:TwitterUser;
   getTweetsOfUser(id:string,max_id?:string){

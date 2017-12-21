@@ -19,7 +19,7 @@ export class TwittsListComponent implements OnInit {
   ngOnInit() {
     this.twitts= [];
       this._twitterService.onNotification().subscribe(
-      notification => { this.twitts = notification;console.log('nnununn')},
+      notification => { this.twitts = notification;console.log('nnununn');},
       error => console.log(error)
     );
     
