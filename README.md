@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install
 clone the repo
-`npm i`
-`ng build && node server.js`
-
-
+```
+npm i
+ng build && node server.js
+```
