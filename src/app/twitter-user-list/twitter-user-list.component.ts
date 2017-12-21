@@ -16,7 +16,6 @@ export class TwitterUserListComponent implements OnInit {
       });
   }
   getTwitts(user : TwitterUser){
-    this._twitterService.currentUser = user;
      this._twitterService.getTweetsOfUser(user.id.toString());
   }
   showUserTweets(user: TwitterUser){

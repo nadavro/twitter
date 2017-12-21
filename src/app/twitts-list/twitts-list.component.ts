@@ -11,15 +11,15 @@ import { Twitt } from "../twitter-user-list/twitt";
 export class TwittsListComponent implements OnInit {
   twitts:Twitt[];
   constructor(private _twitterService: TwitterService) { 
-    // this._twitterService.currentTwitts.subscribe((jsonData) => {
-    //     this.twitts = jsonData;
-    //    console.log(jsonData);
-    //   });
+  }
+  loadMore(){
+    var maxValueOfY = Math.max(...this.twitts.map(o => o.id));
+    this._twitterService.loadMoreTweetsOfUser(maxValueOfY,this.twitts);
   }
   ngOnInit() {
     this.twitts= [];
       this._twitterService.onNotification().subscribe(
-      notification => { this.twitts = notification;console.log('nnununn');},
+      notification => {this.twitts = notification;},
       error => console.log(error)
     );
     
